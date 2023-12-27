@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.21.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1702302342868-1" author="bohdan">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="triggers" columnName="description"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="triggers">
+            <column name="description" type="VARCHAR(255)"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1702302342868-2" author="bohdan">
+        <insert tableName="triggers">
+            <column name="id" value="1"></column>
+            <column name="trigger" value="coldsnap"></column>
+            <column name="description" value="Snap cold"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="2"></column>
+            <column name="trigger" value="suddenwarming"></column>
+            <column name="description" value="sudden warming"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="3"></column>
+            <column name="trigger" value="fog"></column>
+            <column name="description" value="Fog"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="4"></column>
+            <column name="trigger" value="sand"></column>
+            <column name="description" value="Sand"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="5"></column>
+            <column name="trigger" value="thunderstorm"></column>
+            <column name="description" value="Thunderstorm"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="6"></column>
+            <column name="trigger" value="snow"></column>
+            <column name="description" value="Snow"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="7"></column>
+            <column name="trigger" value="dust"></column>
+            <column name="description" value="Dust"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="8"></column>
+            <column name="trigger" value="suddenrain"></column>
+            <column name="description" value="Sudden rain"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="9"></column>
+            <column name="trigger" value="clouds"></column>
+            <column name="description" value="Clouds"></column>
+        </insert>
+        <insert tableName="triggers">
+            <column name="id" value="10"></column>
+            <column name="trigger" value="rain"></column>
+            <column name="description" value="Rain"></column>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

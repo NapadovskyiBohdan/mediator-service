@@ -1,0 +1,38 @@
+server:
+  port: 8086
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+#  profiles:
+#    active: local
+  application:
+    name: mediator-service
+  cloud:
+    config:
+      import: "optional:configserver:http://localhost:8888"
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: admin
+    password: password1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
